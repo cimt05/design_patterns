@@ -23,7 +23,7 @@ class SingletonTest(unittest.TestCase):
         instance = Singleton()
         self.assertIsNotNone(instance)
 
-    def test_two_instances_of_singeton_are_the_same(self):
+    def test_two_instances_of_singleton_are_the_same(self):
         """
         tests that no new instance is created if there is an existing one
         """

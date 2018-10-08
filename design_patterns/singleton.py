@@ -3,7 +3,7 @@ Template for the Singleton design pattern
 """
 
 
-class Singleton(object):
+class Singleton:
     """
     Skeleton of a class that implements the Singleton pattern
     """
@@ -16,8 +16,7 @@ class Singleton(object):
         """
         if cls.instance is None:
             return super().__new__(cls)
-        else:
-            return cls.instance
+        return cls.instance
 
     def __init__(self):
         """
