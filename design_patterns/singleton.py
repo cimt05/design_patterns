@@ -13,6 +13,8 @@ class SingletonType(type):
     def __call__(cls, *args, **kwargs):
         if cls not in cls.__instances:
             cls.__instances[cls] = super(SingletonType, cls).__call__(*args, **kwargs)
+        else:
+            cls.__instances[cls].__init__(*args, **kwargs)
         return cls.__instances[cls]
 
 
@@ -33,7 +35,7 @@ class Singleton(metaclass=SingletonType):
         """
         pass
 
-    def some_more_method(selfs):
+    def some_more_method(self):
         """
         some more method (to make pylint happy ;-))
         """

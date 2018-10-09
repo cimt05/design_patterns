@@ -26,10 +26,14 @@ class SingletonTest(unittest.TestCase):
     def test_two_instances_of_singleton_are_the_same(self):
         """
         tests that no new instance is created if there is an existing one
+        but the one instance is reinitialized
         """
         instance = Singleton('some_value')
-        other_instance = Singleton('some_value')
+        other_instance = Singleton('other_value')
         self.assertIs(instance, other_instance)
+        self.assertEqual(instance.some_value, 'other_value')
+        self.assertTrue(hasattr(other_instance, 'some_method'))
+        self.assertTrue(hasattr(other_instance, 'some_more_method'))
 
 
 if __name__ == '__main__':
