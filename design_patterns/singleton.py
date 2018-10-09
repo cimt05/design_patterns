@@ -33,10 +33,10 @@ class Singleton(metaclass=SingletonType):
         """
         some other method of the singleton
         """
-        pass
+        return 'some_ret_value'
 
     def some_more_method(self):
         """
         some more method (to make pylint happy ;-))
         """
-        pass
+        return 'some_more_ret_value'

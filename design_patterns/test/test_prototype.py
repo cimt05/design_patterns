@@ -22,6 +22,8 @@ class PrototypeTest(unittest.TestCase):
         """
         instance = Prototype('some_value')
         self.assertIsInstance(instance, Prototype)
+        self.assertEqual(instance.some_method(), 'some_ret_value')
+        self.assertEqual(instance.some_value, 'some_value')
 
     def test_can_get_a_clone_as_a_new_instance(self):
         """
