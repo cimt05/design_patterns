@@ -32,3 +32,9 @@ class Singleton(metaclass=SingletonType):
         some other method of the singleton
         """
         pass
+
+    def some_more_method(selfs):
+        """
+        some more method (to make pylint happy ;-))
+        """
+        pass
