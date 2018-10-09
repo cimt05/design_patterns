@@ -1,5 +1,6 @@
 """
-Template for the Singleton design pattern (from, SO question 6760685, creating-a-singleton-in-python)
+Template for the Singleton design pattern
+(from, SO question 6760685, creating-a-singleton-in-python)
 """
 
 
