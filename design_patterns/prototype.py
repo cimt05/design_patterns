@@ -21,7 +21,7 @@ class Prototype:
         """
         Other method not related to prototype pattern
         """
-        return 'some_ret_value'
+        return self.some_value
 
     def clone(self):
         """

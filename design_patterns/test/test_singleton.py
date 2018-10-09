@@ -23,8 +23,8 @@ class SingletonTest(unittest.TestCase):
         instance = Singleton('some_value')
         self.assertIsInstance(instance, Singleton)
         self.assertEqual(instance.some_value, 'some_value')
-        self.assertEqual(instance.some_method(), 'some_ret_value')
-        self.assertEqual(instance.some_more_method(), 'some_more_ret_value')
+        self.assertEqual(instance.some_method(), 'some_value')
+        self.assertEqual(instance.some_more_method(), 2 * 'some_value')
 
     def test_two_instances_of_singleton_are_the_same(self):
         """
