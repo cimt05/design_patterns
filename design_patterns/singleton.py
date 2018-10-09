@@ -1,27 +1,33 @@
 """
-Template for the Singleton design pattern
+Template for the Singleton design pattern (from, SO question 6760685, creating-a-singleton-in-python)
 """
 
 
-class Singleton:
+class SingletonType(type):
+    """
+    Metaclass to make some class a Singleton
+    """
+    __instances = {}
+
+    def __call__(cls, *args, **kwargs):
+        if cls not in cls.__instances:
+            cls.__instances[cls] = super(SingletonType, cls).__call__(*args, **kwargs)
+        return cls.__instances[cls]
+
+
+class Singleton(metaclass=SingletonType):
     """
     Skeleton of a class that implements the Singleton pattern
     """
 
-    __instance = None
+    def __init__(self, some_value):
+        """
+        initializes properties of singleton
+        """
+        self.some_value = some_value
 
-    def __new__(cls):
+    def some_method(self):
         """
-        checks if an instance exists and creates a new one only if this is not the case
+        some other method of the singleton
         """
-        if cls.__instance is None:
-            return super().__new__(cls)
-        return cls.__instance
-
-    def __init__(self):
-        """
-        registers the instance in the class variable (and does further initialization ...)
-        """
-        cls = self.__class__
-        if cls.__instance is None:
-            cls.__instance = self
+        pass

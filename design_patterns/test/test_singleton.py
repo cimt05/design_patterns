@@ -20,15 +20,15 @@ class SingletonTest(unittest.TestCase):
         """
         test normal creation of an instance
         """
-        instance = Singleton()
+        instance = Singleton('some_value')
         self.assertIsInstance(instance, Singleton)
 
     def test_two_instances_of_singleton_are_the_same(self):
         """
         tests that no new instance is created if there is an existing one
         """
-        instance = Singleton()
-        other_instance = Singleton()
+        instance = Singleton('some_value')
+        other_instance = Singleton('some_value')
         self.assertIs(instance, other_instance)
 
 
