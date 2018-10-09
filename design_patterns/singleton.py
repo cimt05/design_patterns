@@ -8,20 +8,20 @@ class Singleton:
     Skeleton of a class that implements the Singleton pattern
     """
 
-    instance = None
+    __instance = None
 
     def __new__(cls):
         """
         checks if an instance exists and creates a new one only if this is not the case
         """
-        if cls.instance is None:
+        if cls.__instance is None:
             return super().__new__(cls)
-        return cls.instance
+        return cls.__instance
 
     def __init__(self):
         """
         registers the instance in the class variable (and does further initialization ...)
         """
         cls = self.__class__
-        if cls.instance is None:
-            cls.instance = self
+        if cls.__instance is None:
+            cls.__instance = self

@@ -21,7 +21,7 @@ class SingletonTest(unittest.TestCase):
         test normal creation of an instance
         """
         instance = Singleton()
-        self.assertIsNotNone(instance)
+        self.assertIsInstance(instance, Singleton)
 
     def test_two_instances_of_singleton_are_the_same(self):
         """
