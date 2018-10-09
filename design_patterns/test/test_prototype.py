@@ -20,14 +20,14 @@ class PrototypeTest(unittest.TestCase):
         """
         Tests instantiation of prototype instance
         """
-        instance = Prototype()
+        instance = Prototype('some_value')
         self.assertIsInstance(instance, Prototype)
 
     def test_can_get_a_clone_as_a_new_instance(self):
         """
         Tests that clone method returns a (deep) copy of the instance
         """
-        instance = Prototype()
+        instance = Prototype('some_value')
         clone = instance.clone()
         self.assertIsInstance(clone, Prototype)
         self.assertNotEqual(instance, clone)
