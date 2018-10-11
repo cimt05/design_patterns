@@ -25,6 +25,8 @@ class ProductTest(unittest.TestCase):
         product = Product('some_value')
         self.assertEqual(product.some_property, 'some_value')
         self.assertTrue(hasattr(product, 'some_method'))
+        self.assertEqual(product.some_method(), 'some_ret_value')
+        self.assertEqual(product.some_other_method(), 'some_other_ret_value')
 
 
 class CreatorTest(unittest.TestCase):
@@ -39,18 +41,22 @@ class CreatorTest(unittest.TestCase):
         creator = Creator()
         self.assertTrue(hasattr(creator, 'factory_method'))
         self.assertRaises(NotImplementedError, creator.factory_method)
+        self.assertEqual(creator.some_other_method(), 'some_other_ret_value')
 
 
 class ConcreteCreatorTest(unittest.TestCase):
     """
-    Unittest for ConcreteCreator class, i.e. a subclass of Creator that implements the factory_method
+    Unittest for ConcreteCreator class, i.e. a subclass of Creator that
+    implements the factory_method
     """
 
     def test_is_subclass_of_creator(self):
         """
         tests that ConcreteCreator is a subclass of Creator
         """
-        self.assertIsInstance(ConcreteCreator(), Creator)
+        concrete_creator = ConcreteCreator()
+        self.assertIsInstance(concrete_creator, Creator)
+        self.assertEqual(concrete_creator.some_other_method(), 'some_other_ret_value')
 
     def test_implements_factory_method(self):
         """
