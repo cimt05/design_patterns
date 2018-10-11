@@ -23,13 +23,13 @@ class Product:
         """
         Sample method of Product
         """
-        return 'some_ret_value'
+        return self.some_property
 
     def some_other_method(self):
         """
         Some more sample method of Product to make pylint happy
         """
-        return 'some_other_ret_value'
+        return self.some_property
 
 
 
@@ -48,7 +48,7 @@ class Creator:
         """
         Some other method to make pylint happy
         """
-        return 'some_other_ret_value'
+        return type(self)
 
 
 class ConcreteCreator(Creator):

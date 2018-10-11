@@ -25,8 +25,8 @@ class ProductTest(unittest.TestCase):
         product = Product('some_value')
         self.assertEqual(product.some_property, 'some_value')
         self.assertTrue(hasattr(product, 'some_method'))
-        self.assertEqual(product.some_method(), 'some_ret_value')
-        self.assertEqual(product.some_other_method(), 'some_other_ret_value')
+        self.assertEqual(product.some_method(), 'some_value')
+        self.assertEqual(product.some_other_method(), 'some_value')
 
 
 class CreatorTest(unittest.TestCase):
@@ -41,7 +41,7 @@ class CreatorTest(unittest.TestCase):
         creator = Creator()
         self.assertTrue(hasattr(creator, 'factory_method'))
         self.assertRaises(NotImplementedError, creator.factory_method)
-        self.assertEqual(creator.some_other_method(), 'some_other_ret_value')
+        self.assertEqual(creator.some_other_method(), type(creator))
 
 
 class ConcreteCreatorTest(unittest.TestCase):
@@ -56,7 +56,7 @@ class ConcreteCreatorTest(unittest.TestCase):
         """
         concrete_creator = ConcreteCreator()
         self.assertIsInstance(concrete_creator, Creator)
-        self.assertEqual(concrete_creator.some_other_method(), 'some_other_ret_value')
+        self.assertEqual(concrete_creator.some_other_method(), type(concrete_creator))
 
     def test_implements_factory_method(self):
         """
